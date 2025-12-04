@@ -1,0 +1,31 @@
+{
+  "name": "excel-diff-addin",
+  "version": "1.0.0",
+  "private": true,
+
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+
+    "validate": "office-addin-lint check",
+    "sideload": "office-toolbox sideload --manifest ../manifest.xml",
+    "unload": "office-toolbox unload --manifest ../manifest.xml"
+  },
+
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.0"
+  }
+}

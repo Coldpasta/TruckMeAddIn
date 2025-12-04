@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>Excel Visual Diff</title>
+
+    <!-- Office JavaScript API -->
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- Fluent UI CSS -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+
+    <!-- For development only -->
+    <script type="text/javascript">
+        Office.onReady(() => {});
+        if (!Office.context.requirements.isSetSupported('ExcelApi', '1.1')) {
+          console.log("Sorry, this add-in only works on Excel with ExcelApi 1.1+");
+        }
+    </script>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- React build will be injected here -->
+<script src="../dist/taskpane.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xsi:type="TaskPaneApp">
+
+    <Id>9f8a7c3e-1d2b-4f6a-9e5d-8c7b6a5f4e3d</Id>
+    <Version>1.0.0.0</Version>
+    <ProviderName>Your Name</ProviderName>
+    <DefaultLocale>en-US</DefaultLocale>
+    <DisplayName DefaultValue="Excel Visual Diff" />
+    <Description DefaultValue="Git-style visual compare for Excel files"/>
+
+    <IconUrl DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
+
+    <AppDomains>
+        <AppDomain>https://localhost:3000</AppDomain>
+        <AppDomain>https://yourdomain.com</AppDomain>
+    </AppDomains>
+
+    <Hosts>
+        <Host Name="Workbook"/>
+    </Hosts>
+
+    <DefaultSettings>
+        <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+    </DefaultSettings>
+
+    <Permissions>ReadWriteDocument</Permissions>
+
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+        <Hosts>
+            <Host xsi:type="Workbook">
+                <DesktopFormFactor>
+                    <FunctionFile resid="Commands.Url"/>
+                    <ExtensionPoint xsi:type="PrimaryCommandSurface">
+                        <OfficeTab id="TabHome">
+                            <Group id="CommandsGroup">
+                                <Label resid="GroupLabel"/>
+                                <Icon>
+                                    <bt:Image size="16" resid="Icon16"/>
+                                    <bt:Image size="32" resid="Icon32"/>
+                                    <bt:Image size="80" resid="Icon80"/>
+                                </Icon>
+                                <Control xsi:type="Button" id="showTaskpane">
+                                    <Label resid="ButtonLabel"/>
+                                    <Supertip>
+                                        <Title resid="ButtonLabel"/>
+                                        <Description resid="ButtonTooltip"/>
+                                    </Supertip>
+                                    <Icon>
+                                        <bt:Image size="16" resid="Icon16"/>
+                                        <bt:Image size="32" resid="Icon32"/>
+                                        <bt:Image size="80" resid="Icon80"/>
+                                    </Icon>
+                                    <Action xsi:type="ShowTaskpane">
+                                        <SourceLocation resid="Taskpane.Url"/>
+                                    </Action>
+                                </Control>
+                            </Group>
+                        </OfficeTab>
+                    </ExtensionPoint>
+                </DesktopFormFactor>
+            </Host>
+        </Hosts>
+
+        <Resources>
+            <bt:Images>
+                <bt:Image id="Icon16" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
+                <bt:Image id="Icon32" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
+                <bt:Image id="Icon80" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
+            </bt:Images>
+            <bt:Urls>
+                <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+                <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+            </bt:Urls>
+            <bt:ShortStrings>
+                <bt:String id="GroupLabel" DefaultValue="Excel Diff"/>
+                <bt:String id="ButtonLabel" DefaultValue="Show Diff"/>
+            </bt:ShortStrings>
+            <bt:LongStrings>
+                <bt:String id="ButtonTooltip" DefaultValue="Open Excel Visual Diff taskpane"/>
+            </bt:LongStrings>
+        </Resources>
+    </VersionOverrides>
+</OfficeApp>
