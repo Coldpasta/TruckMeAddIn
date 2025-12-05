@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./taskpane";
+import App from "./taskpane/app";
 
 function render() {
   const rootEl = document.getElementById("root");
@@ -10,11 +10,9 @@ function render() {
 }
 
 if (window.Office) {
-  // Office.js is present → wait for initialization
   Office.onReady(() => {
     render();
   });
 } else {
-  // Fallback for local dev in browser
   render();
 }

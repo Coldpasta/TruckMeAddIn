@@ -55,7 +55,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
-        template: "./src/taskpane.html",
+        template: "./public/taskpane.html",
         chunks: ["taskpane"],
       }),
 

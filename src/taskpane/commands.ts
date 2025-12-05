@@ -1,5 +1,5 @@
-// src/commands.ts
-export function showTaskpane(event: any) {
+
+export function showTaskpane(event: Office.AddinCommands.Event)  {
   try {
     Office.addin.showAsTaskpane();
   } catch (e) {
