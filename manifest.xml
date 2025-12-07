@@ -15,7 +15,6 @@
 
     <AppDomains>
         <AppDomain>https://coldpasta.github.io/TruckMeAddIn/</AppDomain>
-        <AppDomain>https://yourdomain.com</AppDomain>
     </AppDomains>
 
     <Hosts>
@@ -23,7 +22,7 @@
     </Hosts>
 
     <DefaultSettings>
-        <SourceLocation DefaultValue="https://coldpasta.github.io/TruckMeAddIn/commands.html"/>
+        <SourceLocation DefaultValue="https://coldpasta.github.io/TruckMeAddIn/taskpane.html"/>
         <bt:Url id="Taskpane.html" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/taskpane.html"/>
     </DefaultSettings>
 
@@ -72,7 +71,7 @@
                 <bt:Image id="Icon80" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
             </bt:Images>
             <bt:Urls>
-                <bt:Url id="Commands.Url" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/commands.html"/>
+                <bt:Url id="Commands.Url" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/taskpane.html"/>
                 <bt:Url id="Taskpane.Url" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/taskpane.html"/>
             </bt:Urls>
             <bt:ShortStrings>
