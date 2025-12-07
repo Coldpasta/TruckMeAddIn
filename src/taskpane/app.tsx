@@ -132,11 +132,13 @@
       setChanges([]);
       setSummary("");
 
-      const trialOk = await validateTrialAndConsume();
-      if (!trialOk) {
-        setLoading(false);
-        return;
-      }
+
+//       const trialOk = await validateTrialAndConsume();
+      const trialOk = true;
+//       if (!trialOk) {
+//         setLoading(false);
+//         return;
+//       }
 
       try {
         setLoadingMessage("Parsing uploaded file...");
