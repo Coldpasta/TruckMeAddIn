@@ -14,7 +14,7 @@
     <IconUrl DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
 
     <AppDomains>
-        <AppDomain>https://localhost:3000</AppDomain>
+        <AppDomain>https://coldpasta.github.io/TruckMeAddIn/</AppDomain>
         <AppDomain>https://yourdomain.com</AppDomain>
     </AppDomains>
 
@@ -23,8 +23,8 @@
     </Hosts>
 
     <DefaultSettings>
-        <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
-        <bt:Url id="Taskpane.html" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <SourceLocation DefaultValue="https://coldpasta.github.io/TruckMeAddIn/commands.html"/>
+        <bt:Url id="Taskpane.html" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/taskpane.html"/>
     </DefaultSettings>
 
     <Permissions>ReadWriteDocument</Permissions>
@@ -72,8 +72,8 @@
                 <bt:Image id="Icon80" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
             </bt:Images>
             <bt:Urls>
-                <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
-                <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+                <bt:Url id="Commands.Url" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/commands.html"/>
+                <bt:Url id="Taskpane.Url" DefaultValue="https://coldpasta.github.io/TruckMeAddIn/taskpane.html"/>
             </bt:Urls>
             <bt:ShortStrings>
                 <bt:String id="GroupLabel" DefaultValue="Excel Diff"/>
