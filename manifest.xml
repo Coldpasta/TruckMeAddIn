@@ -62,9 +62,9 @@
 
         <Resources>
             <bt:Images>
-                <bt:Image id="Icon16" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
-                <bt:Image id="Icon32" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
-                <bt:Image id="Icon80" DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
+                <bt:Image id="Icon16" DefaultValue="https://imgur.com/t06yyNw"/>
+                <bt:Image id="Icon32" DefaultValue="https://imgur.com/t06yyNw"/>
+                <bt:Image id="Icon80" DefaultValue="https://imgur.com/t06yyNw"/>
             </bt:Images>
 
             <bt:Urls>
