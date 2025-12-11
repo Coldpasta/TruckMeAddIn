@@ -11,7 +11,7 @@
     <DisplayName DefaultValue="Excel Visual Diff" />
     <Description DefaultValue="Git-style visual compare for Excel files"/>
 
-    <IconUrl DefaultValue="https://i.imgur.com/5vX7g8L.png"/>
+    <IconUrl DefaultValue="https://i.imgur.com/t06yyNw.png"/>
 
     <AppDomains>
         <AppDomain>https://coldpasta.github.io/TruckMeAddIn/</AppDomain>
@@ -62,9 +62,9 @@
 
         <Resources>
             <bt:Images>
-                <bt:Image id="Icon16" DefaultValue="https://imgur.com/t06yyNw"/>
-                <bt:Image id="Icon32" DefaultValue="https://imgur.com/t06yyNw"/>
-                <bt:Image id="Icon80" DefaultValue="https://imgur.com/t06yyNw"/>
+                <bt:Image id="Icon16" DefaultValue="https://i.imgur.com/t06yyNw.png"/>
+                <bt:Image id="Icon32" DefaultValue="https://i.imgur.com/t06yyNw.png"/>
+                <bt:Image id="Icon80" DefaultValue="https://i.imgur.com/t06yyNw.png"/>
             </bt:Images>
 
             <bt:Urls>
