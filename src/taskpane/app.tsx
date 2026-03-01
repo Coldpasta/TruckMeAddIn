@@ -37,6 +37,17 @@ export default function App() {
   const [file1, setFile1] = useState<File | null>(null);
   const [file2, setFile2] = useState<File | null>(null);
   const [changes, setChanges] = useState<Change[]>([]);
+  const changeMap = React.useMemo(() => {
+  const map = new Map<string, Change>();
+  changes.forEach(c => map.set(c.address, c));
+  return map;
+}, [changes]);
+
+const changeIndexMap = React.useMemo(() => {
+  const map = new Map<string, number>();
+  changes.forEach((c, i) => map.set(c.address, i));
+  return map;
+}, [changes]);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [selectedChange, setSelectedChange] = useState<Change | null>(null);
   const [trialUses, setTrialUses] = useState<number | null>(null);
@@ -225,14 +236,23 @@ export default function App() {
         sheets.load("items/name");
         await context.sync();
 
-        for (const s of sheets.items) {
-          const used = s.getUsedRangeOrNullObject(true);
-          used.load("address");
-          await context.sync();
-          if (!used.isNullObject) used.format.fill.clear();
-        }
-        await context.sync();
-      });
+const usedRanges: Excel.Range[] = [];
+
+for (const s of sheets.items) {
+  const used = s.getUsedRangeOrNullObject(true);
+  usedRanges.push(used);
+  used.load("isNullObject");
+}
+
+await context.sync();
+
+for (const used of usedRanges) {
+  if (!used.isNullObject) {
+    used.format.fill.clear();
+  }
+}
+
+await context.sync();
 
       setChanges([]);
       setCurrentIndex(-1);
@@ -263,24 +283,35 @@ export default function App() {
   };
 
   // Podłącz selection changed (po załadowaniu zmian)
-  useEffect(() => {
-    if (changes.length > 0) {
-      Excel.run(async (context) => {
-        const workbook = context.workbook;
-        workbook.onSelectionChanged.add(async (event) => {
-          const address = event.address.split('!')[1] || event.address; // np. A1
-          const change = changes.find(c => c.address === address);
-          if (change) {
-            setSelectedChange(change);
-            setCurrentIndex(changes.indexOf(change));
-          } else {
-            setSelectedChange(null);
-          }
-        });
-        await context.sync();
-      }).catch(err => console.error("Selection listener failed", err));
+ useEffect(() => {
+  let handler: OfficeExtension.EventHandlerResult<any> | null = null;
+
+    Excel.run(async (context) => {
+    const workbook = context.workbook;
+
+  if (changes.length === 0) return;
+
+    handler = workbook.onSelectionChanged.add((event) => {
+      const address = event.address.split('!')[1] || event.address;
+
+      const change = changeMap.get(address);
+      if (change) {
+        setSelectedChange(change);
+        setCurrentIndex(changeIndexMap.get(address) ?? -1);
+      } else {
+        setSelectedChange(null);
+      }
+    });
+
+    await context.sync();
+  }).catch(err => console.error("Selection listener failed", err));
+
+  return () => {
+    if (handler) {
+      handler.remove();
     }
-  }, [changes]);
+  };
+}, [changes]);
 
   return (
     <Stack tokens={{ padding: 20, childrenGap: 16 }} style={{ width: "100%", maxWidth: 640 }}>
@@ -403,7 +434,7 @@ export default function App() {
           >
             {changes.map((ch, idx) => (
               <div
-                key={idx}
+                key={`${ch.sheet}-${ch.address}`}
                 onClick={() => goToChange(idx)}
                 style={{
                   cursor: 'pointer',
